@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateTerminalController">
+   <children>
+      <Label layoutX="12.0" layoutY="75.0" text="Name:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="130.0" text="Number of entrances:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="185.0" text="Number of exits:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameField" layoutX="135.0" layoutY="70.0" prefHeight="30.0" prefWidth="180.0" />
+      <TextField fx:id="numberOfEntrancesField" layoutX="161.0" layoutY="125.0" prefHeight="30.0" prefWidth="154.0" />
+      <TextField fx:id="numberOfExitsField" layoutX="161.0" layoutY="180.0" prefHeight="30.0" prefWidth="154.0" />
+      <Button fx:id="createBtn" layoutX="134.0" layoutY="242.0" mnemonicParsing="false" onAction="#create" text="Create">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="90.0" layoutY="21.0" text="Create new terminal">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

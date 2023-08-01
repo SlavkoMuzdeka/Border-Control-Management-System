@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/service/TerminalServis.java=UTF-8
+encoding//src/service/TerminalServisService.java=UTF-8
+encoding//src/service/TerminalServisServiceLocator.java=UTF-8
+encoding//src/service/TerminalServisSoapBindingStub.java=UTF-8
+encoding//src/servisKlijent/KlijentServis.java=UTF-8
+encoding//src/servisKlijent/KlijentServisService.java=UTF-8
+encoding//src/servisKlijent/KlijentServisServiceLocator.java=UTF-8
+encoding//src/servisKlijent/KlijentServisSoapBindingStub.java=UTF-8
+encoding/<project>=UTF-8

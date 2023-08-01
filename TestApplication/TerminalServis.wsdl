@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service" xmlns:intf="http://service" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <element name="loadConfig">
+    <complexType/>
+   </element>
+   <element name="loadConfigResponse">
+    <complexType/>
+   </element>
+   <element name="kreirajTerminal">
+    <complexType>
+     <sequence>
+      <element name="naziv" type="xsd:string"/>
+      <element name="brojUlaza" type="xsd:int"/>
+      <element name="brojIzlaza" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="kreirajTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="kreirajTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obrisiTerminal">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obrisiTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="obrisiTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dohvatiTerminal">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dohvatiTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="dohvatiTerminalReturn" type="tns1:Terminal"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns1_Izlaz">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Izlaz"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Ulaz">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Ulaz"/>
+    </sequence>
+   </complexType>
+   <element name="provjeraOsobe1">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="idUlaza" type="xsd:int"/>
+      <element name="idOsobe" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeraOsobe1Response">
+    <complexType>
+     <sequence>
+      <element name="provjeraOsobe1Return" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setSlobodan">
+    <complexType>
+     <sequence>
+      <element name="t" type="xsd:boolean"/>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="idUI" type="xsd:int"/>
+      <element name="ulazIzlaz" type="xsd:string"/>
+      <element name="tipUlazIzlaz" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setSlobodanResponse">
+    <complexType>
+     <sequence>
+      <element name="setSlobodanReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="azurirajTerminal">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="brojUlaza" type="xsd:int"/>
+      <element name="brojIzlaza" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="azurirajTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="azurirajTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeraOsobe2">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="idIzlaza" type="xsd:int"/>
+      <element name="idOsobe" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeraOsobe2Response">
+    <complexType>
+     <sequence>
+      <element name="provjeraOsobe2Return" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="blokirajTerminal">
+    <complexType>
+     <sequence>
+      <element name="t" type="xsd:boolean"/>
+      <element name="nazivTerminala" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="blokirajTerminalResponse">
+    <complexType/>
+   </element>
+   <element name="isObradjenDokument2">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="idIzlaza" type="xsd:int"/>
+      <element name="data" type="xsd:base64Binary"/>
+      <element name="zipFajl" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isObradjenDokument2Response">
+    <complexType>
+     <sequence>
+      <element name="isObradjenDokument2Return" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dohvatiProvjerenePutnike">
+    <complexType/>
+   </element>
+   <element name="dohvatiProvjerenePutnikeResponse">
+    <complexType>
+     <sequence>
+      <element name="dohvatiProvjerenePutnikeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isObradjenDokument1">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="idUlaza" type="xsd:int"/>
+      <element name="data" type="xsd:base64Binary"/>
+      <element name="zipFajl" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isObradjenDokument1Response">
+    <complexType>
+     <sequence>
+      <element name="isObradjenDokument1Return" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajProvjerenogPutnika">
+    <complexType>
+     <sequence>
+      <element name="idPutnika" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dodajProvjerenogPutnikaResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service"/>
+   <complexType name="Izlaz">
+    <sequence>
+     <element name="data" nillable="true" type="xsd:base64Binary"/>
+     <element name="id" type="xsd:int"/>
+     <element name="idOsobe" type="xsd:int"/>
+     <element name="nazivFajla" nillable="true" type="xsd:string"/>
+     <element name="slobodan" type="xsd:boolean"/>
+     <element name="slobodanaPolicijskaKontrola" type="xsd:boolean"/>
+     <element name="slobodnaCarinskaKontrola" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="Ulaz">
+    <sequence>
+     <element name="data" nillable="true" type="xsd:base64Binary"/>
+     <element name="id" type="xsd:int"/>
+     <element name="idOsobe" type="xsd:int"/>
+     <element name="nazivFajla" nillable="true" type="xsd:string"/>
+     <element name="slobodan" type="xsd:boolean"/>
+     <element name="slobodanaPolicijskaKontrola" type="xsd:boolean"/>
+     <element name="slobodnaCarinskaKontrola" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="Terminal">
+    <sequence>
+     <element name="blokiran" type="xsd:boolean"/>
+     <element name="brojIzlaza" type="xsd:int"/>
+     <element name="brojUlaza" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="izlazi" nillable="true" type="impl:ArrayOf_tns1_Izlaz"/>
+     <element name="naziv" nillable="true" type="xsd:string"/>
+     <element name="ulazi" nillable="true" type="impl:ArrayOf_tns1_Ulaz"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="dodajProvjerenogPutnikaRequest">
+
+      <wsdl:part element="impl:dodajProvjerenogPutnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="kreirajTerminalResponse">
+
+      <wsdl:part element="impl:kreirajTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isObradjenDokument1Response">
+
+      <wsdl:part element="impl:isObradjenDokument1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isObradjenDokument2Response">
+
+      <wsdl:part element="impl:isObradjenDokument2Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraOsobe1Request">
+
+      <wsdl:part element="impl:provjeraOsobe1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSlobodanResponse">
+
+      <wsdl:part element="impl:setSlobodanResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraOsobe2Request">
+
+      <wsdl:part element="impl:provjeraOsobe2" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiProvjerenePutnikeResponse">
+
+      <wsdl:part element="impl:dohvatiProvjerenePutnikeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="kreirajTerminalRequest">
+
+      <wsdl:part element="impl:kreirajTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiTerminalRequest">
+
+      <wsdl:part element="impl:dohvatiTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isObradjenDokument2Request">
+
+      <wsdl:part element="impl:isObradjenDokument2" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isObradjenDokument1Request">
+
+      <wsdl:part element="impl:isObradjenDokument1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraOsobe1Response">
+
+      <wsdl:part element="impl:provjeraOsobe1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="azurirajTerminalResponse">
+
+      <wsdl:part element="impl:azurirajTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiTerminalResponse">
+
+      <wsdl:part element="impl:dohvatiTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dodajProvjerenogPutnikaResponse">
+
+      <wsdl:part element="impl:dodajProvjerenogPutnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loadConfigResponse">
+
+      <wsdl:part element="impl:loadConfigResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loadConfigRequest">
+
+      <wsdl:part element="impl:loadConfig" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="blokirajTerminalRequest">
+
+      <wsdl:part element="impl:blokirajTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="blokirajTerminalResponse">
+
+      <wsdl:part element="impl:blokirajTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiProvjerenePutnikeRequest">
+
+      <wsdl:part element="impl:dohvatiProvjerenePutnike" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obrisiTerminalRequest">
+
+      <wsdl:part element="impl:obrisiTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraOsobe2Response">
+
+      <wsdl:part element="impl:provjeraOsobe2Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSlobodanRequest">
+
+      <wsdl:part element="impl:setSlobodan" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obrisiTerminalResponse">
+
+      <wsdl:part element="impl:obrisiTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="azurirajTerminalRequest">
+
+      <wsdl:part element="impl:azurirajTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TerminalServis">
+
+      <wsdl:operation name="loadConfig">
+
+         <wsdl:input message="impl:loadConfigRequest" name="loadConfigRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loadConfigResponse" name="loadConfigResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="kreirajTerminal">
+
+         <wsdl:input message="impl:kreirajTerminalRequest" name="kreirajTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:kreirajTerminalResponse" name="kreirajTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obrisiTerminal">
+
+         <wsdl:input message="impl:obrisiTerminalRequest" name="obrisiTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obrisiTerminalResponse" name="obrisiTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiTerminal">
+
+         <wsdl:input message="impl:dohvatiTerminalRequest" name="dohvatiTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dohvatiTerminalResponse" name="dohvatiTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraOsobe1">
+
+         <wsdl:input message="impl:provjeraOsobe1Request" name="provjeraOsobe1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:provjeraOsobe1Response" name="provjeraOsobe1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSlobodan">
+
+         <wsdl:input message="impl:setSlobodanRequest" name="setSlobodanRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setSlobodanResponse" name="setSlobodanResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="azurirajTerminal">
+
+         <wsdl:input message="impl:azurirajTerminalRequest" name="azurirajTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:azurirajTerminalResponse" name="azurirajTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraOsobe2">
+
+         <wsdl:input message="impl:provjeraOsobe2Request" name="provjeraOsobe2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:provjeraOsobe2Response" name="provjeraOsobe2Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="blokirajTerminal">
+
+         <wsdl:input message="impl:blokirajTerminalRequest" name="blokirajTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:blokirajTerminalResponse" name="blokirajTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isObradjenDokument2">
+
+         <wsdl:input message="impl:isObradjenDokument2Request" name="isObradjenDokument2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isObradjenDokument2Response" name="isObradjenDokument2Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiProvjerenePutnike">
+
+         <wsdl:input message="impl:dohvatiProvjerenePutnikeRequest" name="dohvatiProvjerenePutnikeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dohvatiProvjerenePutnikeResponse" name="dohvatiProvjerenePutnikeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isObradjenDokument1">
+
+         <wsdl:input message="impl:isObradjenDokument1Request" name="isObradjenDokument1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isObradjenDokument1Response" name="isObradjenDokument1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajProvjerenogPutnika">
+
+         <wsdl:input message="impl:dodajProvjerenogPutnikaRequest" name="dodajProvjerenogPutnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dodajProvjerenogPutnikaResponse" name="dodajProvjerenogPutnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TerminalServisSoapBinding" type="impl:TerminalServis">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="loadConfig">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loadConfigRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loadConfigResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="kreirajTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="kreirajTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="kreirajTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obrisiTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obrisiTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obrisiTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dohvatiTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dohvatiTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraOsobe1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="provjeraOsobe1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="provjeraOsobe1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSlobodan">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setSlobodanRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setSlobodanResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="azurirajTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="azurirajTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="azurirajTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraOsobe2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="provjeraOsobe2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="provjeraOsobe2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="blokirajTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="blokirajTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="blokirajTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isObradjenDokument2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isObradjenDokument2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isObradjenDokument2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiProvjerenePutnike">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dohvatiProvjerenePutnikeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dohvatiProvjerenePutnikeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isObradjenDokument1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isObradjenDokument1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isObradjenDokument1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dodajProvjerenogPutnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dodajProvjerenogPutnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dodajProvjerenogPutnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TerminalServisService">
+
+      <wsdl:port binding="impl:TerminalServisSoapBinding" name="TerminalServis">
+
+         <wsdlsoap:address location="http://localhost:8080/CentralniRegistarServer/services/TerminalServis"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

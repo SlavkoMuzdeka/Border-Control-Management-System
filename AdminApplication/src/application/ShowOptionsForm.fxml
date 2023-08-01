@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="320.0" prefWidth="309.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ShowOptionsController">
+   <children>
+      <Button fx:id="terminalBtn" layoutX="34.0" layoutY="80.0" mnemonicParsing="false" onAction="#showForm1" prefHeight="39.0" prefWidth="240.0" text="Working with terminals">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="credentialBtn" layoutX="34.0" layoutY="140.0" mnemonicParsing="false" onAction="#showForm2" prefHeight="39.0" prefWidth="240.0" text="Working with credentials">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="124.0" layoutY="25.0" text="Select">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="evidenceBtn" layoutX="34.0" layoutY="200.0" mnemonicParsing="false" onAction="#showForm3" prefHeight="39.0" prefWidth="240.0" text="Records of persons on warrants">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="documentBtn" layoutX="34.0" layoutY="260.0" mnemonicParsing="false" onAction="#showForm4" prefHeight="39.0" prefWidth="240.0" text="Overview of customs documents">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

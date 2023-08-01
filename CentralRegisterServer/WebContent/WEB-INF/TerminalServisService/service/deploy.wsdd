@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TerminalServisService WSDL service -->
+
+  <service name="TerminalServis" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service"/>
+      <parameter name="wsdlServiceElement" value="TerminalServisService"/>
+      <parameter name="schemaQualified" value="http://model,http://service"/>
+      <parameter name="wsdlServicePort" value="TerminalServis"/>
+      <parameter name="className" value="service.TerminalServis"/>
+      <parameter name="wsdlPortType" value="TerminalServis"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service" name="loadConfig" qname="operNS:loadConfig" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="kreirajTerminal" qname="operNS:kreirajTerminal" returnQName="retNS:kreirajTerminalReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:naziv" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:brojUlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:brojIzlaza" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="obrisiTerminal" qname="operNS:obrisiTerminal" returnQName="retNS:obrisiTerminalReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://model" name="dohvatiTerminal" qname="operNS:dohvatiTerminal" returnQName="retNS:dohvatiTerminalReturn" returnType="rtns:Terminal" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="provjeraOsobe1" qname="operNS:provjeraOsobe1" returnQName="retNS:provjeraOsobe1Return" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idOsobe" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="setSlobodan" qname="operNS:setSlobodan" returnQName="retNS:setSlobodanReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:t" type="tns:boolean"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUI" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ulazIzlaz" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tipUlazIzlaz" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="azurirajTerminal" qname="operNS:azurirajTerminal" returnQName="retNS:azurirajTerminalReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:brojUlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:brojIzlaza" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="provjeraOsobe2" qname="operNS:provjeraOsobe2" returnQName="retNS:provjeraOsobe2Return" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idIzlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idOsobe" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service" name="blokirajTerminal" qname="operNS:blokirajTerminal" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:t" type="tns:boolean"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isObradjenDokument2" qname="operNS:isObradjenDokument2" returnQName="retNS:isObradjenDokument2Return" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idIzlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:data" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:zipFajl" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="dohvatiProvjerenePutnike" qname="operNS:dohvatiProvjerenePutnike" returnQName="retNS:dohvatiProvjerenePutnikeReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service" xmlns:retNS="http://service" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="isObradjenDokument1" qname="operNS:isObradjenDokument1" returnQName="retNS:isObradjenDokument1Return" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nazivTerminala" type="tns:string"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idUlaza" type="tns:int"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:data" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:zipFajl" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service" name="dodajProvjerenogPutnika" qname="operNS:dodajProvjerenogPutnika" soapAction="">
+        <parameter xmlns:pns="http://service" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idPutnika" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="obrisiTerminal provjeraOsobe1 provjeraOsobe2 loadConfig dodajProvjerenogPutnika setSlobodan isObradjenDokument1 blokirajTerminal dohvatiProvjerenePutnike kreirajTerminal dohvatiTerminal isObradjenDokument2 azurirajTerminal"/>
+
+      <typeMapping xmlns:ns="http://model" qname="ns:Terminal" type="java:model.Terminal" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://model" qname="ns:Izlaz" type="java:model.Izlaz" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://service" xmlns:cmp-ns="http://model" qname="ns:ArrayOf_tns1_Izlaz" type="java:model.Izlaz[]" innerType="cmp-ns:Izlaz" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://model" qname="ns:Ulaz" type="java:model.Ulaz" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://service" xmlns:cmp-ns="http://model" qname="ns:ArrayOf_tns1_Ulaz" type="java:model.Ulaz[]" innerType="cmp-ns:Ulaz" encodingStyle=""/>
+  </service>
+</deployment>

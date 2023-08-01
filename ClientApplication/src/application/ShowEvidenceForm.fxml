@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ShowEvidenceController">
+   <children>
+      <Label layoutX="91.0" layoutY="26.0" text="Checked passengers">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="10.0" layoutY="75.0" prefHeight="265.0" prefWidth="300.0">
+         <content>
+            <TextArea fx:id="passengersArea" prefHeight="263.0" prefWidth="298.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

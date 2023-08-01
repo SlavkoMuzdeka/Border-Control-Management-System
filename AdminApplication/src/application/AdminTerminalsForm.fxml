@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminTerminalsController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="170.0" style="-fx-background-color: #708090;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="createlBtn" layoutY="60.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="170.0" text="Create terminal">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
+            <Button fx:id="updateBtn" layoutY="100.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="170.0" text="Update terminal">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
+            <Button fx:id="deleteBtn" layoutY="140.0" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="170.0" text="Delete terminal">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
+            <Button fx:id="getBtn" layoutY="180.0" mnemonicParsing="false" onAction="#getOne" prefHeight="40.0" prefWidth="170.0" text="Get terminal">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

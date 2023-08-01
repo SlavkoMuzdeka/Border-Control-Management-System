@@ -1,0 +1,63 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from KlijentServisService WSDL service -->
+
+  <service name="KlijentServis" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servisKlijent"/>
+      <parameter name="wsdlServiceElement" value="KlijentServisService"/>
+      <parameter name="schemaQualified" value="http://servisKlijent"/>
+      <parameter name="wsdlServicePort" value="KlijentServis"/>
+      <parameter name="className" value="servisKlijent.KlijentServisSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="KlijentServis"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="slanjeNaPosrednika" qname="operNS:slanjeNaPosrednika" xmlns:operNS="http://servisKlijent" soapAction="" >
+        <parameter qname="pns:naziv" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:temp" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isDokumentSmjesten" qname="operNS:isDokumentSmjesten" xmlns:operNS="http://servisKlijent" returnQName="retNS:isDokumentSmjestenReturn" xmlns:retNS="http://servisKlijent" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idAplikacije" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="isDokumentPoslat" qname="operNS:isDokumentPoslat" xmlns:operNS="http://servisKlijent" returnQName="retNS:isDokumentPoslatReturn" xmlns:retNS="http://servisKlijent" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idTestneAplikacije" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:data" xmlns:pns="http://servisKlijent" type="tns:base64Binary" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nazivTerminala" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:tipPrelaza" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idPrelaza" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nazivZipFajla" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="naPotjernici" qname="operNS:naPotjernici" xmlns:operNS="http://servisKlijent" returnQName="retNS:naPotjerniciReturn" xmlns:retNS="http://servisKlijent" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idAplikacije" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="postojiTerminal" qname="operNS:postojiTerminal" xmlns:operNS="http://servisKlijent" returnQName="retNS:postojiTerminalReturn" xmlns:retNS="http://servisKlijent" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nazivTerminala" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="aktivanPrelaz" qname="operNS:aktivanPrelaz" xmlns:operNS="http://servisKlijent" returnQName="retNS:aktivanPrelazReturn" xmlns:retNS="http://servisKlijent" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:vrstaPrelaza" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idPrelaza" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nazivTerminala" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="provjeriIdSaTestneAplikacije" qname="operNS:provjeriIdSaTestneAplikacije" xmlns:operNS="http://servisKlijent" soapAction="" >
+        <parameter qname="pns:idOsobe" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idTestneAplikacije" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nazivTerminala" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:tipPrelaza" xmlns:pns="http://servisKlijent" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:idPrelaza" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="posaljiSaPolicijskeKontrole" qname="operNS:posaljiSaPolicijskeKontrole" xmlns:operNS="http://servisKlijent" soapAction="" >
+        <parameter qname="pns:idOsobe" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:temp" xmlns:pns="http://servisKlijent" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="postojiTerminal isDokumentSmjesten provjeriIdSaTestneAplikacije isDokumentPoslat naPotjernici slanjeNaPosrednika posaljiSaPolicijskeKontrole aktivanPrelaz"/>
+
+  </service>
+</deployment>

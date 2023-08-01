@@ -1,0 +1,121 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\slavko\eclipse_projektni_mdp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CentralniRegistar\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="TerminalServis" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="kreirajTerminal" qname="ns1:kreirajTerminal" returnQName="ns1:kreirajTerminalReturn" returnType="xsd:boolean" soapAction="" xmlns:ns1="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:naziv" type="xsd:string"/>
+   <ns2:parameter qname="ns1:brojUlaza" type="xsd:int"/>
+   <ns2:parameter qname="ns1:brojIzlaza" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="dohvatiTerminal" qname="ns2:dohvatiTerminal" returnQName="ns2:dohvatiTerminalReturn" returnType="ns3:Terminal" soapAction="" xmlns:ns2="http://service" xmlns:ns3="http://model">
+   <ns1:parameter qname="ns2:nazivTerminala" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="setSlobodan" qname="ns4:setSlobodan" returnQName="ns4:setSlobodanReturn" returnType="xsd:boolean" soapAction="" xmlns:ns4="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:t" type="xsd:boolean"/>
+   <ns1:parameter qname="ns4:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns4:idUI" type="xsd:int"/>
+   <ns1:parameter qname="ns4:ulazIzlaz" type="xsd:string"/>
+   <ns1:parameter qname="ns4:tipUlazIzlaz" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="obrisiTerminal" qname="ns5:obrisiTerminal" returnQName="ns5:obrisiTerminalReturn" returnType="xsd:boolean" soapAction="" xmlns:ns5="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:nazivTerminala" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="azurirajTerminal" qname="ns6:azurirajTerminal" returnQName="ns6:azurirajTerminalReturn" returnType="xsd:boolean" soapAction="" xmlns:ns6="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns6:brojUlaza" type="xsd:int"/>
+   <ns1:parameter qname="ns6:brojIzlaza" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="provjeraOsobe1" qname="ns7:provjeraOsobe1" returnQName="ns7:provjeraOsobe1Return" returnType="xsd:boolean" soapAction="" xmlns:ns7="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns7:idUlaza" type="xsd:int"/>
+   <ns1:parameter qname="ns7:idOsobe" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="provjeraOsobe2" qname="ns8:provjeraOsobe2" returnQName="ns8:provjeraOsobe2Return" returnType="xsd:boolean" soapAction="" xmlns:ns8="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns8:idIzlaza" type="xsd:int"/>
+   <ns1:parameter qname="ns8:idOsobe" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="loadConfig" qname="ns9:loadConfig" soapAction="" xmlns:ns9="http://service"/>
+  <ns1:operation name="blokirajTerminal" qname="ns10:blokirajTerminal" soapAction="" xmlns:ns10="http://service">
+   <ns1:parameter qname="ns10:t" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns10:nazivTerminala" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="isObradjenDokument1" qname="ns11:isObradjenDokument1" returnQName="ns11:isObradjenDokument1Return" returnType="xsd:boolean" soapAction="" xmlns:ns11="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns11:idUlaza" type="xsd:int"/>
+   <ns1:parameter qname="ns11:data" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns11:zipFajl" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="isObradjenDokument2" qname="ns12:isObradjenDokument2" returnQName="ns12:isObradjenDokument2Return" returnType="xsd:boolean" soapAction="" xmlns:ns12="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:nazivTerminala" type="xsd:string"/>
+   <ns1:parameter qname="ns12:idIzlaza" type="xsd:int"/>
+   <ns1:parameter qname="ns12:data" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns12:zipFajl" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="dodajProvjerenogPutnika" qname="ns13:dodajProvjerenogPutnika" soapAction="" xmlns:ns13="http://service">
+   <ns1:parameter qname="ns13:idPutnika" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="dohvatiProvjerenePutnike" qname="ns14:dohvatiProvjerenePutnike" returnQName="ns14:dohvatiProvjerenePutnikeReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://service" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="obrisiTerminal provjeraOsobe1 provjeraOsobe2 loadConfig dodajProvjerenogPutnika setSlobodan isObradjenDokument1 blokirajTerminal dohvatiProvjerenePutnike kreirajTerminal dohvatiTerminal isObradjenDokument2 azurirajTerminal"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="TerminalServis"/>
+  <ns1:parameter name="className" value="service.TerminalServis"/>
+  <ns1:parameter name="wsdlServicePort" value="TerminalServis"/>
+  <ns1:parameter name="schemaQualified" value="http://model,http://service"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service"/>
+  <ns1:parameter name="wsdlServiceElement" value="TerminalServisService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:Terminal" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:model.Terminal" xmlns:ns15="http://model"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:Izlaz" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:model.Izlaz" xmlns:ns16="http://model"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns17:Ulaz" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:model.Ulaz" xmlns:ns17="http://model"/>
+  <ns1:arrayMapping innerType="ns19:Izlaz" languageSpecificType="java:model.Izlaz[]" qname="ns18:ArrayOf_tns1_Izlaz" xmlns:ns18="http://service" xmlns:ns19="http://model"/>
+  <ns1:arrayMapping innerType="ns21:Ulaz" languageSpecificType="java:model.Ulaz[]" qname="ns20:ArrayOf_tns1_Ulaz" xmlns:ns20="http://service" xmlns:ns21="http://model"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

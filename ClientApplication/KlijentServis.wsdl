@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servisKlijent" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servisKlijent" xmlns:intf="http://servisKlijent" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servisKlijent" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="slanjeNaPosrednika">
+    <complexType>
+     <sequence>
+      <element name="naziv" type="xsd:string"/>
+      <element name="temp" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="slanjeNaPosrednikaResponse">
+    <complexType/>
+   </element>
+   <element name="isDokumentSmjesten">
+    <complexType>
+     <sequence>
+      <element name="idAplikacije" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isDokumentSmjestenResponse">
+    <complexType>
+     <sequence>
+      <element name="isDokumentSmjestenReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isDokumentPoslat">
+    <complexType>
+     <sequence>
+      <element name="idTestneAplikacije" type="xsd:int"/>
+      <element name="data" type="xsd:base64Binary"/>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="tipPrelaza" type="xsd:string"/>
+      <element name="idPrelaza" type="xsd:int"/>
+      <element name="nazivZipFajla" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isDokumentPoslatResponse">
+    <complexType>
+     <sequence>
+      <element name="isDokumentPoslatReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="naPotjernici">
+    <complexType>
+     <sequence>
+      <element name="idAplikacije" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="naPotjerniciResponse">
+    <complexType>
+     <sequence>
+      <element name="naPotjerniciReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postojiTerminal">
+    <complexType>
+     <sequence>
+      <element name="nazivTerminala" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postojiTerminalResponse">
+    <complexType>
+     <sequence>
+      <element name="postojiTerminalReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="aktivanPrelaz">
+    <complexType>
+     <sequence>
+      <element name="vrstaPrelaza" type="xsd:string"/>
+      <element name="idPrelaza" type="xsd:int"/>
+      <element name="nazivTerminala" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="aktivanPrelazResponse">
+    <complexType>
+     <sequence>
+      <element name="aktivanPrelazReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeriIdSaTestneAplikacije">
+    <complexType>
+     <sequence>
+      <element name="idOsobe" type="xsd:int"/>
+      <element name="idTestneAplikacije" type="xsd:int"/>
+      <element name="nazivTerminala" type="xsd:string"/>
+      <element name="tipPrelaza" type="xsd:string"/>
+      <element name="idPrelaza" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeriIdSaTestneAplikacijeResponse">
+    <complexType/>
+   </element>
+   <element name="posaljiSaPolicijskeKontrole">
+    <complexType>
+     <sequence>
+      <element name="idOsobe" type="xsd:int"/>
+      <element name="temp" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="posaljiSaPolicijskeKontroleResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="isDokumentPoslatRequest">
+
+      <wsdl:part element="impl:isDokumentPoslat" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postojiTerminalRequest">
+
+      <wsdl:part element="impl:postojiTerminal" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="aktivanPrelazResponse">
+
+      <wsdl:part element="impl:aktivanPrelazResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="slanjeNaPosrednikaRequest">
+
+      <wsdl:part element="impl:slanjeNaPosrednika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeriIdSaTestneAplikacijeRequest">
+
+      <wsdl:part element="impl:provjeriIdSaTestneAplikacije" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="slanjeNaPosrednikaResponse">
+
+      <wsdl:part element="impl:slanjeNaPosrednikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isDokumentPoslatResponse">
+
+      <wsdl:part element="impl:isDokumentPoslatResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="naPotjerniciResponse">
+
+      <wsdl:part element="impl:naPotjerniciResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="naPotjerniciRequest">
+
+      <wsdl:part element="impl:naPotjernici" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isDokumentSmjestenRequest">
+
+      <wsdl:part element="impl:isDokumentSmjesten" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="posaljiSaPolicijskeKontroleResponse">
+
+      <wsdl:part element="impl:posaljiSaPolicijskeKontroleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postojiTerminalResponse">
+
+      <wsdl:part element="impl:postojiTerminalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="posaljiSaPolicijskeKontroleRequest">
+
+      <wsdl:part element="impl:posaljiSaPolicijskeKontrole" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="aktivanPrelazRequest">
+
+      <wsdl:part element="impl:aktivanPrelaz" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isDokumentSmjestenResponse">
+
+      <wsdl:part element="impl:isDokumentSmjestenResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeriIdSaTestneAplikacijeResponse">
+
+      <wsdl:part element="impl:provjeriIdSaTestneAplikacijeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="KlijentServis">
+
+      <wsdl:operation name="slanjeNaPosrednika">
+
+         <wsdl:input message="impl:slanjeNaPosrednikaRequest" name="slanjeNaPosrednikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:slanjeNaPosrednikaResponse" name="slanjeNaPosrednikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isDokumentSmjesten">
+
+         <wsdl:input message="impl:isDokumentSmjestenRequest" name="isDokumentSmjestenRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isDokumentSmjestenResponse" name="isDokumentSmjestenResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isDokumentPoslat">
+
+         <wsdl:input message="impl:isDokumentPoslatRequest" name="isDokumentPoslatRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isDokumentPoslatResponse" name="isDokumentPoslatResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="naPotjernici">
+
+         <wsdl:input message="impl:naPotjerniciRequest" name="naPotjerniciRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:naPotjerniciResponse" name="naPotjerniciResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postojiTerminal">
+
+         <wsdl:input message="impl:postojiTerminalRequest" name="postojiTerminalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postojiTerminalResponse" name="postojiTerminalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="aktivanPrelaz">
+
+         <wsdl:input message="impl:aktivanPrelazRequest" name="aktivanPrelazRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:aktivanPrelazResponse" name="aktivanPrelazResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeriIdSaTestneAplikacije">
+
+         <wsdl:input message="impl:provjeriIdSaTestneAplikacijeRequest" name="provjeriIdSaTestneAplikacijeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:provjeriIdSaTestneAplikacijeResponse" name="provjeriIdSaTestneAplikacijeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="posaljiSaPolicijskeKontrole">
+
+         <wsdl:input message="impl:posaljiSaPolicijskeKontroleRequest" name="posaljiSaPolicijskeKontroleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:posaljiSaPolicijskeKontroleResponse" name="posaljiSaPolicijskeKontroleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="KlijentServisSoapBinding" type="impl:KlijentServis">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="slanjeNaPosrednika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="slanjeNaPosrednikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="slanjeNaPosrednikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isDokumentSmjesten">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isDokumentSmjestenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isDokumentSmjestenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isDokumentPoslat">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isDokumentPoslatRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isDokumentPoslatResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="naPotjernici">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="naPotjerniciRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="naPotjerniciResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postojiTerminal">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postojiTerminalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postojiTerminalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="aktivanPrelaz">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="aktivanPrelazRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="aktivanPrelazResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeriIdSaTestneAplikacije">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="provjeriIdSaTestneAplikacijeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="provjeriIdSaTestneAplikacijeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="posaljiSaPolicijskeKontrole">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="posaljiSaPolicijskeKontroleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="posaljiSaPolicijskeKontroleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="KlijentServisService">
+
+      <wsdl:port binding="impl:KlijentServisSoapBinding" name="KlijentServis">
+
+         <wsdlsoap:address location="http://localhost:8080/TestServerKlijent/services/KlijentServis"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
