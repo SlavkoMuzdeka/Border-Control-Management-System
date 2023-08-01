@@ -6,7 +6,7 @@ The `Border Control Management System` is a set of applications designed to prov
 
 ## Applications
 
-1. `Admin Application` is designed for administrators to manage the entire Border Control Management System. It features a user-friendly graphical interface (`JavaFX`) that facilitates the addition, modification, and deletion of car customs terminals, entry/exit points, and other critical data.Administrators can also monitor system activities, view detailed logs, and perform various administrative tasks through the Admin Application. Apache CXF is used to implement SOAP-based web services to communicate between the Admin Application and the central register.
+1. `Admin Application` is designed for administrators to manage the entire Border Control Management System. It features a user-friendly graphical interface (JavaFX) that facilitates the addition, modification, and deletion of car customs terminals, entry/exit points, and other critical data.Administrators can also monitor system activities, view detailed logs, and perform various administrative tasks through the Admin Application. Apache CXF is used to implement SOAP-based web services to communicate between the Admin Application and the central register.
 
 2. `Client Application`: The client application represents individual checkpoints at customs terminals. It allows users to log in by providing the terminal ID, type of checkpoint (police or customs), and the name of the customs terminal. The user's credentials are verified through a REST service and stored in an in-memory database. The client application supports chat communication with other checkpoints. All chat communication is handled securely through a Socket server. Additionally, the client application maintains a record of verified passengers, which is stored in the central registry as a text file.
 
@@ -22,13 +22,13 @@ The `Border Control Management System` is a set of applications designed to prov
 
 ### Key Dependencies & Platforms
 
-- [JDK 11]('https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html') or later: The Java Development Kit (JDK) version 11 or a later version is required to develop and run the system. It provides the necessary tools and libraries for Java application development.
+- [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) or later: The Java Development Kit (JDK) version 11 or a later version is required to develop and run the system. It provides the necessary tools and libraries for Java application development.
 
-- [Eclipse IDE]('https://www.eclipse.org/ide/'): Eclipse IDE is the Integrated Development Environment used to develop Java applications. It offers various features, such as code editing, debugging, and version control integration, to facilitate efficient software development.
+- [Eclipse IDE](https://www.eclipse.org/ide/): Eclipse IDE is the Integrated Development Environment used to develop Java applications. It offers various features, such as code editing, debugging, and version control integration, to facilitate efficient software development.
 
-- [JavaFX]('https://openjfx.io/'): JavaFX is a set of libraries and tools for building modern, rich client applications using Java. It provides a powerful framework for creating GUI-based applications with a rich user interface.
+- [JavaFX](https://openjfx.io/): JavaFX is a set of libraries and tools for building modern, rich client applications using Java. It provides a powerful framework for creating GUI-based applications with a rich user interface.
 
-- [Scene Builder]('https://www.oracle.com/java/technologies/javase/javafxscenebuilder-info.html'): Scene Builder is a visual layout tool for designing JavaFX application interfaces. It allows developers to create the graphical user interface of the applications using drag-and-drop features, which simplifies the design process.
+- [Scene Builder](https://www.oracle.com/java/technologies/javase/javafxscenebuilder-info.html): Scene Builder is a visual layout tool for designing JavaFX application interfaces. It allows developers to create the graphical user interface of the applications using drag-and-drop features, which simplifies the design process.
 
 Make sure to have these dependencies installed and configured correctly to develop and run the Border Control Management System smoothly. Additionally, you may need to set up the relevant project configurations in Eclipse IDE to ensure seamless integration with JavaFX and Scene Builder for GUI development.
 
