@@ -14,7 +14,7 @@ The `Border Control Management System` is a set of applications designed to prov
 
 4. `File Server`: The File Server is responsible for managing the storage and retrieval of various files within the system, such as customs documents and relevant travel records. It employs Java NIO to ensure efficient and non-blocking handling of file I/O operations, leading to optimal performance. The File Server ensures the secure and reliable storage of essential documents and data related to border crossings.
 
-5. `Central Register Server`: The Central Register serves as the heart of the system, storing essential data, such as records of customs terminals, user credentials, and detected wanted persons. It manages the serialization and deserialization of data related to the customs terminals (including multiple serialization methods) and the registry of wanted persons (using XML format). 
+5. `Central Register Server`: The Central Register serves as the heart of the system, storing essential data, such as records of customs terminals, user credentials, and detected wanted persons. It manages the serialization and deserialization of data related to the customs terminals (including multiple serialization methods) and the registry of wanted persons (using XML format).
 
 6. `Chat Server`: The Chat Server enables real-time communication between different client applications within the system. Using socket programming, it allows clients to exchange messages via multicast and broadcast methods. The Chat Server handles message distribution, ensuring that relevant information reaches the intended recipients.
 
